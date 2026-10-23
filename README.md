@@ -1,25 +1,19 @@
 # System Design Patterns
 
-A personal learning notebook for understanding how reliable applications work: the problem, a small diagram, a real code example, and what happens when something fails.
+A notebook for learning one architecture pattern at a time, with short explanations and one clear picture.
 
-**Start here:** [Transactional outbox](docs/transactional-outbox/README.md) — save a business change and the intent to send work together, then deliver later.
+**Start here: [Transactional outbox](docs/transactional-outbox/README.md)**
 
-## System design or software architecture?
+Remember: **Save together. Send later.**
 
-Both terms fit. **System design** considers how databases, queues, workers and services cooperate. **Software architecture** describes the structures, boundaries and decisions inside and between those parts. Transactional outbox is an architectural pattern for reliable messaging, commonly studied in system design.
+Learn why a saved job also needs a saved reminder to send it.
 
-This notebook uses “system design patterns” as the broad home for those lessons. A pattern is a response to a particular problem, with costs; it is not a requirement to add more infrastructure.
+## How to read a lesson
 
-## Topic index
+Read the short explanation, follow its picture, then remember the key idea and its limit. Open the optional code reference only when you want more detail.
 
-| Topic | Learning material | Worked example |
-| --- | --- | --- |
-| Transactional outbox | [Explanation, diagrams, failures and tradeoffs](docs/transactional-outbox/README.md) | Résumé Match: Django → PostgreSQL → RabbitMQ → Celery |
+“Architecture” describes how the parts fit together. “System design” considers how those parts cooperate. This notebook covers both.
 
-Possible later topics: idempotency, leases and fencing, retries with backoff, dead-letter handling, and CQRS. These are ideas for future lessons, not completed material.
+For future lessons, use the [short topic guide](docs/topic-guide.md).
 
-## Add a lesson
-
-Use the [short topic guide](docs/topic-guide.md). Keep Markdown and editable Mermaid together with an inspected static image fallback. Pin real implementation links to a commit and distinguish source inspection from runtime evidence.
-
-This is a public, docs-only learning repository. The first lesson references selected application source; it contains no résumé files, credentials or copied application repository.
+Public learning notes; examples use selected source links, without personal résumé files or credentials.

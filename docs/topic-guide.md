@@ -1,14 +1,17 @@
 # Writing the next pattern lesson
 
-Create `docs/<pattern-name>/README.md` and put its illustrations beside it in `assets/`. Add one row to the root topic index when the lesson is ready.
+Create `docs/<pattern-name>/README.md`, with its figure in `assets/`. Add the finished lesson to the root index.
 
-Cover these points in plain language:
+Make the main page easy to finish and remember:
 
-1. The problem and one sentence describing the mechanism.
-2. A familiar illustrated scenario, component mapping, and the analogy's limits.
-3. A small happy-path diagram and a failure or duplicate path. Keep literal Mermaid source and an inspected static fallback.
-4. A concrete application example with commit-pinned source links and the transaction or trust boundary.
-5. Benefits, costs, when to use it, and when simpler code is sufficient.
-6. Verified primary references, the date checked, and precise verification limits.
+1. Start with one concrete problem and a short, accurate memory phrase.
+2. Define unfamiliar terms beside their first use. Keep one example throughout.
+3. Show **one main visual** and explain it in about three numbered steps. Match the names and numbers in both. Keep the boundary that makes the pattern work.
+4. Give one benefit and one cost. Preserve essential failure risks without adding a second diagram.
+5. Stop. Aim for roughly 200–250 words; this is a pacing preference, not a reason to omit necessary correctness.
 
-Do not present planned topics as finished lessons. A published explanation does not establish learner mastery or prove production behavior.
+Put code mapping, edge cases and verified primary sources in an optional `reference.md`. Keep editable diagram source collapsed and provide an inspected static image. Preserve superseded material through an immutable history link, clearly marked historical.
+
+Before publishing, read the page as a beginner: is the starting point obvious, does each step explain what happens next, and is the memory phrase still true? Check the diagram and links. The reading order must be **short lesson → optional reference**. Remove competing current versions and extra visible diagrams.
+
+Do not present planned topics as finished lessons. Publishing notes does not prove production behavior or learner understanding.
