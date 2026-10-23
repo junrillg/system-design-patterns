@@ -12,6 +12,8 @@ Learn why a saved job also needs a saved reminder to send it.
 
 Follow the named process, read each step beside its diagram, then use the everyday illustration to remember the roles. Keep the benefit and limits in mind. Open the optional reference for deeper code details.
 
+Diagram labels and colors distinguish our Python code, stored data, the message broker and the framework that runs tasks.
+
 “Architecture” describes how the parts fit together. “System design” considers how those parts cooperate. This notebook covers both.
 
 For future lessons, use the [short topic guide](docs/topic-guide.md).

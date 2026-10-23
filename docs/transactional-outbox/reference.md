@@ -2,6 +2,10 @@
 
 Read the [main lesson](README.md) first. These notes explain the boundaries; they are not extra steps to memorize.
 
+## Code, library and process boundaries
+
+`relay_jobs`, `relay_once` and `publish_job` are our command/function names. The relay uses Celery as a producer library through `app.send_task`; RabbitMQ accepts the published message. A separate Celery worker uses the same framework to find and call our registered task, `process_job`. Functions are not individual services, and using the Celery client does not start a worker.
+
 ## What can go wrong?
 
 If RabbitMQ accepts a message and the relay crashes before committing `sent_at`, the reminder still looks pending. Retrying can send it twice. Marking it sent before publishing would instead risk losing the message. This is why consumers need **idempotency**: repeated delivery must not cause repeated harmful effects.
@@ -13,7 +17,7 @@ A publisher confirmation means broker acceptance, not worker completion. A consu
 Source inspected on 24 October 2026 at [`66c0985`](https://github.com/junrillg/resume-match-bedrock/tree/66c0985efe2f1fb4ca04871b877d3de5e850cd47):
 
 - [Fresh upload](https://github.com/junrillg/resume-match-bedrock/blob/66c0985efe2f1fb4ca04871b877d3de5e850cd47/backend/matching/views.py#L339-L393): the file upload happens outside finalization. Finalization updates the reserved job to `QUEUED` and adds its outbox row in one transaction.
-- [Relay](https://github.com/junrillg/resume-match-bedrock/blob/66c0985efe2f1fb4ca04871b877d3de5e850cd47/backend/matching/jobs.py#L175-L216): selects a due, unsent row; publishes; saves `sent_at`. This relay holds a separate database transaction while publishing. `sent_at` excludes that same row from ordinary sends; retry/recovery may create a new row for the same job.
+- [Relay](https://github.com/junrillg/resume-match-bedrock/blob/66c0985efe2f1fb4ca04871b877d3de5e850cd47/backend/matching/jobs.py#L175-L216): selects a due, unsent row; `publish_job` uses `app.send_task`; then saves `sent_at`. This relay holds a separate database transaction while publishing. `sent_at` excludes that same row from ordinary sends; retry/recovery may create a new row for the same job.
 - [Worker path](https://github.com/junrillg/resume-match-bedrock/blob/66c0985efe2f1fb4ca04871b877d3de5e850cd47/backend/matching/tasks.py#L6-L12) begins at `process_job`. [Document text](https://github.com/junrillg/resume-match-bedrock/blob/66c0985efe2f1fb4ca04871b877d3de5e850cd47/backend/matching/documents.py#L147-L183) first fetches and safety-checks the original, then uses valid cached text or parses the file. The cache avoids parsing, not this original-file check.
 - [Worker protection](https://github.com/junrillg/resume-match-bedrock/blob/66c0985efe2f1fb4ca04871b877d3de5e850cd47/backend/matching/jobs.py#L51-L101): job state and a time-limited claim protect database results from competing workers. They do not guarantee one external provider call.
 
@@ -21,7 +25,12 @@ Delivery still needs a running relay, recovery and a working broker. Pending rem
 
 ## Sources and history
 
-Primary references checked on 24 October 2026: [pattern author’s explanation](https://microservices.io/patterns/data/transactional-outbox.html) and [RabbitMQ confirmations and acknowledgements](https://www.rabbitmq.com/docs/confirms).
+Primary references checked on 24 October 2026:
+
+- [Pattern author’s explanation](https://microservices.io/patterns/data/transactional-outbox.html).
+- [RabbitMQ confirmations and acknowledgements](https://www.rabbitmq.com/docs/confirms).
+- [Celery: calling tasks](https://docs.celeryq.dev/en/stable/userguide/calling.html), including `send_task` by task name.
+- [Celery: first steps](https://docs.celeryq.dev/en/stable/getting-started/first-steps-with-celery.html), separating the broker and running worker.
 
 [Historical full lesson](https://github.com/junrillg/system-design-patterns/blob/f67c2653dde2c19d6bb6e0359d452c66269439c3/docs/transactional-outbox/README.md) preserves the superseded diagrams and source map. Start with the current main lesson.
 
