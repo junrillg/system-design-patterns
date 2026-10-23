@@ -1,6 +1,6 @@
 # System Design Patterns
 
-A notebook for learning one architecture pattern at a time, with short explanations and one clear picture.
+A notebook for learning one architecture pattern at a time, with clear process diagrams, short explanations and matching everyday illustrations.
 
 **Start here: [Transactional outbox](docs/transactional-outbox/README.md)**
 
@@ -10,7 +10,7 @@ Learn why a saved job also needs a saved reminder to send it.
 
 ## How to read a lesson
 
-Read the short explanation, follow its picture, then remember the key idea and its limit. Open the optional code reference only when you want more detail.
+Follow the named process, read each step beside its diagram, then use the everyday illustration to remember the roles. Keep the benefit and limits in mind. Open the optional reference for deeper code details.
 
 “Architecture” describes how the parts fit together. “System design” considers how those parts cooperate. This notebook covers both.
 
