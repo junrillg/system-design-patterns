@@ -13,6 +13,8 @@ Make the explanation easy to follow without removing the useful process:
 
 Put detailed code mapping, edge cases and verified primary sources in an optional `reference.md`. Keep editable diagram source collapsed and provide inspected static images. Preserve superseded material through an immutable history link, clearly marked historical.
 
+Use official technology logos alongside the written names when helpful. Preserve brand proportions and colors; record asset sources. Logos identify technology, while the labels and group boundaries identify roles. Keep the PNG self-contained; provide an editable SVG when logos cannot render reliably in the text-only Mermaid outline.
+
 Before publishing, read it as a beginner: is the starting point obvious, does each step explain what happens next, and is the memory phrase still true? Check figure readability and links. The reading order must be **problem → named process → familiar illustration → benefit and cost → optional reference**. Remove competing current versions and redundant diagrams, while keeping requested teaching material.
 
 Do not present planned topics as finished lessons. Publishing notes does not prove production behavior or learner understanding.

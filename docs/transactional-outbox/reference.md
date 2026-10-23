@@ -37,3 +37,5 @@ Primary references checked on 24 October 2026:
 This documentation does not establish learner mastery or prove runtime behavior. No application or broker tests were run for this simplification.
 
 The updated café illustration was made with built-in image generation from the earlier café scene and inspected locally. Its [generation prompt](assets/outbox-cafe-prompt.txt) records the intended actions and labels.
+
+The process figure uses locally packaged official Django, Python, PostgreSQL and Celery assets, documented in [logo sources](assets/logos/sources.md). RabbitMQ retains a written label with a generic queue symbol. The PNG and editable SVG embed their assets; the Mermaid outline is text-only.

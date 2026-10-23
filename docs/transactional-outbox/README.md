@@ -27,7 +27,13 @@ Read stages **1 → 2 → 3 → 4**. Boxes identify code, libraries and services
 
 **Colors:** blue = our Python code/processes; green = database and rows; orange = RabbitMQ broker; purple = Celery library/runtime. The labels also state each role.
 
+**Logos identify the technology; labels explain the role.** Python marks our Python code. The Celery logo appears in both the sending library and the worker, which have different jobs.
+
+Django and PostgreSQL use their official marks. RabbitMQ uses its name and a generic queue symbol because its published guidance restricts logo reuse. [Logo sources and guidance](assets/logos/sources.md).
+
 ![Four stages distinguish our Django and relay Python code, PostgreSQL rows, Celery client library, RabbitMQ broker, and a Celery worker running our task functions](assets/outbox-process.png)
+
+[Editable diagram with embedded logos (SVG)](assets/outbox-process.svg). The collapsed Mermaid outline below preserves the same flow as text labels.
 
 1. **Save together.** Our Django acceptance code saves the job’s `QUEUED` state and an `OutboxEvent` reminder in **one PostgreSQL transaction**. Both are saved, or neither is. This finishes before publishing.
 2. **Send later.** Our `relay_jobs` command calls `relay_once`, which locks one due, unsent reminder. Our `publish_job` function uses the **Celery client API**, `app.send_task`, to publish. These functions all run in the relay process.
@@ -53,7 +59,7 @@ The café explains the roles; a paper ledger does not provide database rollback,
 [Optional code boundaries and sources](reference.md) explain those safeguards. Remember: **save the job and reminder together; send the message later.**
 
 <details>
-<summary>Editable process diagram source</summary>
+<summary>Editable text-only Mermaid outline</summary>
 
 ```mermaid
 flowchart TD
