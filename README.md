@@ -22,4 +22,4 @@ Possible later topics: idempotency, leases and fencing, retries with backoff, de
 
 Use the [short topic guide](docs/topic-guide.md). Keep Markdown and editable Mermaid together with an inspected static image fallback. Pin real implementation links to a commit and distinguish source inspection from runtime evidence.
 
-This is a private, docs-only learning repository. The first lesson references selected application source; it contains no résumé files, credentials or copied application repository.
+This is a public, docs-only learning repository. The first lesson references selected application source; it contains no résumé files, credentials or copied application repository.
