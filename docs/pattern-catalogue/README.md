@@ -2,7 +2,7 @@
 
 **Nine more topics are supported by the code.** Start with request idempotency after the [outbox lesson](../transactional-outbox/README.md). It answers the next question: what happens when a request arrives again?
 
-Reviewed on **24 October 2026**: [Candidate Screening with Kafka](https://github.com/junrillg/candidate-screening-kafka/tree/458372974d8c6463a396ef165cd2fe7b93113e65) and [Résumé Match with RabbitMQ/Celery](https://github.com/junrillg/resume-match-bedrock/tree/66c0985efe2f1fb4ca04871b877d3de5e850cd47). Both revisions matched public `main` at review time. This is an implementation catalogue; these nine topics do not yet have finished illustrated lessons. Source and test inspection does not prove deployed behavior.
+Reviewed on **24 October 2026**: [Candidate Screening with Kafka](https://github.com/junrillg/candidate-screening-kafka/tree/458372974d8c6463a396ef165cd2fe7b93113e65) and [Résumé Match with RabbitMQ/Celery](https://github.com/junrillg/resume-match-bedrock/tree/66c0985efe2f1fb4ca04871b877d3de5e850cd47). Both revisions matched public `main` at review time. This is an implementation catalogue; [request idempotency now has an illustrated lesson](../request-idempotency/README.md); the other eight remain topics for future lessons. Source and test inspection does not prove deployed behavior.
 
 ## Learn the delivery protections first
 
@@ -11,7 +11,7 @@ These mechanisms cooperate, but protect different steps. Read the short question
 | Topic | Question it answers | Where found |
 |---|---|---|
 | **Transactional outbox — [finished lesson](../transactional-outbox/README.md)** | How can saving work also preserve the intent to send it? | Both apps; the lesson follows Résumé Match. |
-| **1. [Request idempotency](reference.md#request-idempotency)** | What if the caller retries the same submission? Same owner/key and matching content reuse one logical request. | Both APIs. |
+| **1. [Request idempotency — finished lesson](../request-idempotency/README.md)** | What if the caller retries the same submission? Same owner/key and matching content reuse one logical request. | Both APIs. |
 | **2. [Worker leases and guarded completion](reference.md#worker-leases)** | What if workers overlap or an old worker returns late? Claim work temporarily and check ownership when saving. | Both job processors, with different expiry checks. |
 | **3. [Transactional inbox](reference.md#transactional-inbox)** | What if Kafka delivers an event again? Save its identity and the local database change together. | Kafka consumers. |
 | **4. [Claim check](reference.md#claim-check)** | How can a message stay small? Send a reference, then retrieve the payload when needed. | Both: Kafka uses internal HTTP; Résumé Match retrieves the stored original. |

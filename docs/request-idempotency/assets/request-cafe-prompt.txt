@@ -1,0 +1,12 @@
+Generated with the built-in image generation tool.
+
+Use case: illustration-story
+Asset type: educational everyday illustration for a software idempotency lesson
+Primary request: A warm, clean, easy-to-follow three-panel café comic showing a repeated order request recognized using the same ticket, without creating a second order.
+Style: polished friendly editorial illustration, flat softly textured colors, pale cream background, crisp large typography, restrained blue/green accents, no technology logos.
+Composition: wide horizontal triptych, three clearly separated numbered panels, left to right, generous whitespace. Same customer in blue jacket and same cashier throughout.
+Panel 1 heading exactly "1. First request": customer presents a small blue ticket marked "K". Cashier writes one green ledger entry reading "K → ORDER 42"; a small line beside it reads "1 LATTE". There is one order ticket marked "42" on a rail behind cashier.
+Panel 2 heading exactly "2. Ask again": same customer presents the same blue ticket "K" and says "Same latte, same ticket." Cashier points to the existing ledger entry "K → ORDER 42", still "1 LATTE". No additional order ticket is created.
+Panel 3 heading exactly "3. Same order": cashier hands back a receipt marked "ORDER 42" with a friendly reassuring gesture. The rail still has just one order ticket42. No second cup/order. The order may still be waiting; do not imply a completed drink must already exist.
+Bottom caption exactly "Same ticket + same order details → same order number".
+Constraints: depict request identity, stored record and replay clearly, not a worker/broker flow. No cash/payment imagery, no duplicate cups, no locks, no crossed-out scary red panels. No long prose. All visible essential ticket and ledger identifiers must be legible and consistent. Labels K and42 are illustrative short aliases, not actual API formats. No watermark.

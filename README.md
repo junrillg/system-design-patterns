@@ -18,9 +18,9 @@ Diagram labels and colors distinguish our Python code, stored data, the message 
 
 ## More patterns from the applications
 
-The [reviewed pattern catalogue](docs/pattern-catalogue/README.md) identifies nine more topics in Candidate Screening and Résumé Match, with pinned code evidence and limits. Only outbox has a finished illustrated lesson so far.
+The [reviewed pattern catalogue](docs/pattern-catalogue/README.md) identifies nine more topics in Candidate Screening and Résumé Match, with pinned code evidence and limits. Illustrated lessons now cover outbox and [request idempotency](docs/request-idempotency/README.md).
 
-Recommended next: **request idempotency** — safely recognize a repeated submission.
+**Next lesson: [Request idempotency](docs/request-idempotency/README.md)** — safely recognize a repeated submission.
 
 For future lessons, use the [short topic guide](docs/topic-guide.md).
 
