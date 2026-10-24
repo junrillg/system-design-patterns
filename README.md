@@ -16,6 +16,12 @@ Diagram labels and colors distinguish our Python code, stored data, the message 
 
 “Architecture” describes how the parts fit together. “System design” considers how those parts cooperate. This notebook covers both.
 
+## More patterns from the applications
+
+The [reviewed pattern catalogue](docs/pattern-catalogue/README.md) identifies nine more topics in Candidate Screening and Résumé Match, with pinned code evidence and limits. Only outbox has a finished illustrated lesson so far.
+
+Recommended next: **request idempotency** — safely recognize a repeated submission.
+
 For future lessons, use the [short topic guide](docs/topic-guide.md).
 
 Public learning notes; examples use selected source links, without personal résumé files or credentials.
