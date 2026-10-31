@@ -1,27 +1,29 @@
 # System Design Patterns
 
-A notebook for learning one architecture pattern at a time, with clear process diagrams, short explanations and matching everyday illustrations.
+Engineering notes on architecture patterns, with clear process diagrams, concise explanations and matching illustrations.
 
-**Start here: [Transactional outbox](docs/transactional-outbox/README.md)**
+## Illustrated patterns
 
-Remember: **Save together. Send later.**
+| Pattern | Problem it addresses |
+| --- | --- |
+| [Transactional outbox](docs/transactional-outbox/README.md) | Save work and the intent to send it together. |
+| [Request idempotency](docs/request-idempotency/README.md) | Recognize a repeated submission without creating another job. |
+| [Saga](docs/saga/README.md) | Coordinate employee onboarding across HR, IT and payroll, with recovery when setup cannot finish. |
 
-Learn why a saved job also needs a saved reminder to send it.
+The outbox and idempotency entries follow inspected application code. The saga entry is a design scenario with explicit assumptions.
 
-## How to read a lesson
+## Reading order
 
-Follow the named process, read each step beside its diagram, then use the everyday illustration to remember the roles. Keep the benefit and limits in mind. Open the optional reference for deeper code details.
+Each entry connects one concrete problem to a named process, a matching illustration, and the main benefit and cost. Optional references hold deeper boundaries and source evidence.
 
-Diagram labels and colors distinguish our Python code, stored data, the message broker and the framework that runs tasks.
+Diagram labels and colors distinguish application code, stored data, message brokers and framework roles where they appear.
 
 “Architecture” describes how the parts fit together. “System design” considers how those parts cooperate. This notebook covers both.
 
 ## More patterns from the applications
 
-The [reviewed pattern catalogue](docs/pattern-catalogue/README.md) identifies nine more topics in Candidate Screening and Résumé Match, with pinned code evidence and limits. Illustrated lessons now cover outbox and [request idempotency](docs/request-idempotency/README.md).
+The [reviewed pattern catalogue](docs/pattern-catalogue/README.md) identifies nine more topics in Candidate Screening and Résumé Match, with pinned code evidence and limits. The independent saga scenario does not change that implementation audit.
 
-**Next lesson: [Request idempotency](docs/request-idempotency/README.md)** — safely recognize a repeated submission.
+New entries follow the [short topic guide](docs/topic-guide.md).
 
-For future lessons, use the [short topic guide](docs/topic-guide.md).
-
-Public learning notes; examples use selected source links, without personal résumé files or credentials.
+Public engineering notes; examples use selected source links, without personal résumé files or credentials.

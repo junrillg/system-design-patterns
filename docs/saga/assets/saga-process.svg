@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="1420" viewBox="0 0 680 1420" role="img" aria-labelledby="title desc">
+  <title id="title">Employee onboarding saga</title>
+  <desc id="desc">A coordinator tracks local commits in HR, IT and payroll. Accepted payroll enrollment leads to onboarding confirmation. Confirmed rejection releases the specific laptop reservation, then cancels pending onboarding while retaining history. Timeout requires reconciliation.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#334155"/></marker>
+    <style>
+      text { font-family:Arial,DejaVu Sans,sans-serif; fill:#162333; font-size:24px; }
+      .heading { font-size:30px; font-weight:700; }
+      .label { font-size:23px; }
+      .strong { font-weight:700; }
+      .code { fill:#EAF2FF; stroke:#26456B; stroke-width:2; }
+      .data { fill:#E7F5EC; stroke:#28553C; stroke-width:2; }
+      .neutral { fill:#F8FAFC; stroke:#64748B; stroke-width:2; }
+      .line { fill:none; stroke:#334155; stroke-width:2; marker-end:url(#arrow); }
+    </style>
+  </defs>
+  <rect width="680" height="1420" rx="16" fill="#FFFFFF"/>
+  <text x="340" y="43" text-anchor="middle" class="heading">One onboarding. Separate commits.</text>
+  <rect x="55" y="66" width="24" height="24" fill="#EAF2FF" stroke="#26456B"/>
+  <text x="90" y="86" class="label">Application / service</text>
+  <rect x="378" y="66" width="24" height="24" fill="#E7F5EC" stroke="#28553C"/>
+  <text x="413" y="86" class="label">Saved data</text>
+
+  <rect x="40" y="118" width="600" height="118" rx="10" class="code"/>
+  <text x="340" y="154" text-anchor="middle" class="strong">Onboarding coordinator</text>
+  <text x="340" y="186" text-anchor="middle">Chooses commands; tracks their results</text>
+  <rect x="65" y="205" width="550" height="56" rx="8" class="data"/>
+  <text x="340" y="240" text-anchor="middle">Durable progress: saga 42 + operation IDs</text>
+  <path d="M340 263V302" class="line"/>
+  <text x="340" y="295" text-anchor="middle" class="label" transform="translate(0,-4)"> </text>
+
+  <rect x="40" y="309" width="600" height="88" rx="10" class="code"/>
+  <text x="340" y="344" text-anchor="middle" class="strong">1 · HR service</text>
+  <text x="340" y="376" text-anchor="middle">Create pending employee</text>
+  <rect x="65" y="393" width="550" height="52" rx="8" class="data"/>
+  <text x="340" y="427" text-anchor="middle">HR database: employee 7 = PENDING</text>
+  <path d="M340 449V489" class="line"/>
+
+  <rect x="40" y="496" width="600" height="88" rx="10" class="code"/>
+  <text x="340" y="531" text-anchor="middle" class="strong">2 · IT service</text>
+  <text x="340" y="563" text-anchor="middle">Reserve a laptop for this onboarding</text>
+  <rect x="65" y="580" width="550" height="52" rx="8" class="data"/>
+  <text x="340" y="614" text-anchor="middle">IT database: reservation R9 = RESERVED</text>
+  <path d="M340 636V676" class="line"/>
+
+  <rect x="40" y="683" width="600" height="88" rx="10" class="code"/>
+  <text x="340" y="718" text-anchor="middle" class="strong">3 · Payroll system</text>
+  <text x="340" y="750" text-anchor="middle">Enroll employee; return the result</text>
+  <path d="M340 773V795H190V857" class="line"/>
+  <path d="M340 795H495V857" class="line"/>
+  <text x="185" y="831" text-anchor="middle" class="strong">Rejected</text>
+  <text x="500" y="831" text-anchor="middle" class="strong">Accepted</text>
+
+  <rect x="40" y="865" width="290" height="112" rx="10" class="neutral"/>
+  <text x="185" y="902" text-anchor="middle">No enrollment</text>
+  <text x="185" y="934" text-anchor="middle">was created</text>
+  <rect x="350" y="865" width="290" height="112" rx="10" class="data"/>
+  <text x="495" y="901" text-anchor="middle">Enrollment saved</text>
+  <text x="495" y="933" text-anchor="middle" class="strong">Confirm onboarding</text>
+  <path d="M185 980V1001H340V1021" class="line"/>
+
+  <rect x="40" y="1028" width="600" height="166" rx="10" class="code"/>
+  <text x="340" y="1067" text-anchor="middle" class="strong">4 · Compensate earlier effects</text>
+  <text x="340" y="1103" text-anchor="middle">IT: release reservation R9</text>
+  <text x="340" y="1139" text-anchor="middle">Then HR: cancel pending onboarding</text>
+  <text x="340" y="1175" text-anchor="middle">New local updates; history remains</text>
+  <path d="M340 1197V1231" class="line"/>
+  <rect x="40" y="1238" width="600" height="60" rx="10" class="data"/>
+  <text x="340" y="1276" text-anchor="middle">Both confirmed → record CANCELED</text>
+
+  <text x="340" y="1338" text-anchor="middle" class="strong">Timeout? Result unknown. Check or safely retry.</text>
+  <text x="340" y="1376" text-anchor="middle" class="label">Arrows = coordinator order, not service-to-service calls.</text>
+</svg>
