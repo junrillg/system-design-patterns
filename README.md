@@ -9,8 +9,9 @@ Engineering notes on architecture patterns, with clear process diagrams, concise
 | [Transactional outbox](docs/transactional-outbox/README.md) | Save work and the intent to send it together. |
 | [Request idempotency](docs/request-idempotency/README.md) | Recognize a repeated submission without creating another job. |
 | [Saga](docs/saga/README.md) | Coordinate employee onboarding across HR, IT and payroll, with recovery when setup cannot finish. |
+| [CQRS](docs/cqrs/README.md) | Keep document approval rules separate from the onboarding dashboard's read model. |
 
-The outbox and idempotency entries follow inspected application code. The saga entry is a design scenario with explicit assumptions.
+The outbox and idempotency entries follow inspected application code. The saga and CQRS entries are design scenarios with explicit assumptions.
 
 ## Reading order
 
@@ -22,8 +23,9 @@ Diagram labels and colors distinguish application code, stored data, message bro
 
 ## More patterns from the applications
 
-The [reviewed pattern catalogue](docs/pattern-catalogue/README.md) identifies nine more topics in Candidate Screening and Résumé Match, with pinned code evidence and limits. The independent saga scenario does not change that implementation audit.
+The [reviewed pattern catalogue](docs/pattern-catalogue/README.md) identifies nine more topics in Candidate Screening and Résumé Match, with pinned code evidence and limits. The independent saga and CQRS scenarios do not change that implementation audit.
 
 New entries follow the [short topic guide](docs/topic-guide.md).
 
 Public engineering notes; examples use selected source links, without personal résumé files or credentials.
+
